@@ -58,7 +58,6 @@ public class HikariCPConnectionProvider implements ConnectionProvider, Configura
 
 			boolean initializedHikariDataSource = false;
 
-			// Support a HikariDataSource already configured by classes which extend this class
 			if(props.containsKey("HikariDataSource")) {
 				Object ohds = props.get("HikariDataSource");
 				if(ohds instanceof HikariDataSource) {
@@ -67,7 +66,6 @@ public class HikariCPConnectionProvider implements ConnectionProvider, Configura
 				}
 			}
 			if(!initializedHikariDataSource) {
-				// Default logic if no subclass has configured a HikariDataSource, do so now
 				hds = new HikariDataSource( hcfg );
 			}
 		}
